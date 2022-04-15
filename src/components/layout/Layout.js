@@ -2,14 +2,14 @@ import React from 'react'
 import styles from "./layout.module.css"
 import Navbar from './navbar/Navbar'
 
-function Layout({children}) {
+function Layout({ children }) {
   return (
     <div className={styles.root} >
-        <Navbar />
+      <Navbar />
 
-        <div className={styles.body} >
-          { children }
-        </div>
+      <div className={styles.body} >
+        <main>{children}</main>
+      </div>
     </div>
   )
 }
