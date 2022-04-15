@@ -1,14 +1,10 @@
 export const links_navbar = [
     {
         href: '/',
-        label: 'Solicitar Prestamo',
+        label: 'Request Loan',
     },
     {
-        href: '/verificar-solicitud',
-        label: 'Verificar Solicitud',
-    },
-    {
-        href: '/administracion',
-        label: 'Administración',
+        href: '/admin-page',
+        label: 'Admin page',
     },
 ]

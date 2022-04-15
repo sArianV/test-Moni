@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 
-import prestamosReducer from './reducers/prestamos.reducer';
+import loansReducer from './reducers/loans.reducer';
 
 const rootReducer = combineReducers({
-
-    prestamos: prestamosReducer,
-
+    loans: loansReducer,
 });
 
 export default rootReducer;
