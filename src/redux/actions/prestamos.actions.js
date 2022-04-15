@@ -2,7 +2,7 @@ import {
     SOLICITAR_PRESTAMO,
     VERIFICAR_PRESTAMO,
     SET_LOADING,
-} from './prestamos.types';
+} from '../types/prestamos.types';
 
 export const solicitar_prestamo = (prestamo) => {
     // petisiones aca

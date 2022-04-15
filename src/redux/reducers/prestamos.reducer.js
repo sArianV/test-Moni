@@ -2,7 +2,7 @@ import {
     SOLICITAR_PRESTAMO,
     VERIFICAR_PRESTAMO,
     SET_LOADING
-} from './prestamos.types';
+} from '../types/prestamos.types';
 
 const INITIAL_STATE = {
     loading: false,

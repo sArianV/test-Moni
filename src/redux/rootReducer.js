@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import prestamosReducer from './Prestamos/prestamos.reducer';
+import prestamosReducer from './reducers/prestamos.reducer';
 
 const rootReducer = combineReducers({
 
