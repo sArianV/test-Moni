@@ -1,0 +1,24 @@
+.content {
+    min-height: 100vh;
+    width: 100%;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+}
+
+@media (max-width: 600px) {
+    .table_container {
+        width: 100%;
+        flex-direction: column;
+    }
+}
