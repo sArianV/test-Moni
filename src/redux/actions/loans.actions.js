@@ -1,6 +1,7 @@
 import {
     REQUEST_LOAN,
     SET_LOADING,
+    GET_LOANS
 } from '../types/loans.types';
 
 import axios from 'axios';
@@ -25,6 +26,25 @@ export const request_loan = async (prestamo) => {
         };
     } catch (error) {
         console.log(error);
+    }
+
+}
+
+export const get_loans = async () => {
+    try {
+        const api_url = process.env.NEXT_PUBLIC_API_LOAN_URL
+
+        const response = await axios.get(api_url);
+
+        return {
+            type: GET_LOANS,
+            payload: response?.data || {},
+        };
+    } catch (error) {
+        return {
+            type: GET_LOANS,
+            payload: {},
+        }
     }
 
 }
