@@ -5,7 +5,9 @@ import { set_loading, get_loans } from "../../redux/actions/loans.actions";
 import styles from './index.module.css';
 
 function index() {
-  const { loading, loans } = useSelector((state) => { return { loading: state.loans.loading, loans: state.loans.loans } });
+  const loading = useSelector((state) => state.loans.loading);
+  const loans = useSelector((state) => state.loans.loans );
+
   const dispatch = useDispatch();
 
   const fetch_loans = async () => {
@@ -15,8 +17,10 @@ function index() {
     dispatch(fetched_loans);
   }
 
+  console.log(loans);
+
   return (
-    <div className={styles.content}> pantalla verificar mi solicitud {loading ? "true" : "false"}
+    <div className={styles.content}> Admin Screen {loading ? "true" : "false"}
       <div className={styles.table_container}>
         
           <Button
