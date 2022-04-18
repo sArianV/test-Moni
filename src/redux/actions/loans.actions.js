@@ -7,16 +7,17 @@ import {
 import axios from 'axios';
 
 const options = {
-    "headers": {
-        "credential": process.env.NEXT_PUBLIC_CREDENTIAL
-    }
+    baseURL: 'https://api.moni.com.ar/api/v4',
+    headers: {
+        /* credential: 'ZGpzOTAzaWZuc2Zpb25kZnNubm5u', */
+    },
 }
 
 export const request_loan = async (prestamo) => {
     try {
         const api_url = process.env.NEXT_PUBLIC_API_PRE_SCORE_URL
 
-        const response = await axios.get(api_url + "30156149", options);
+        const response = await axios.get(`https://api.moni.com.ar/api/v4/scoring/pre-score/30156149`);
 
         console.log(response);
 
