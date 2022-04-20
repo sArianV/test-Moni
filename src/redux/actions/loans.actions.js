@@ -13,17 +13,17 @@ const options = {
     },
 }
 
-export const request_loan = async (prestamo) => {
+export const request_loan = async (loan) => {
     try {
         const api_url = process.env.NEXT_PUBLIC_API_PRE_SCORE_URL
-
-        const response = await axios.get(`https://api.moni.com.ar/api/v4/scoring/pre-score/30156149`);
+        const { dni } = loan
+        const response = await axios.get(`${api_url + dni}`);
 
         console.log(response);
 
         return {
             type: REQUEST_LOAN,
-            payload: prestamo,
+            payload: loan,
         };
     } catch (error) {
         console.log(error);
