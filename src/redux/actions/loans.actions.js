@@ -20,13 +20,16 @@ export const request_loan = async (loan) => {
         const { dni } = loan
 
         const prescore_response = await axios.get(`${prescore_api_url + dni}`);
-        
-        const { status : loanStatus } = prescore_response?.data || null
+
+        const { status: loanStatus } = prescore_response?.data || null
 
         if (loanStatus == null) {
             return {
                 type: REQUEST_LOAN,
-                payload: "Something went wrong, please try again"
+                payload: {
+                    message: "Something went wrong, please try again",
+                    type: "error"
+                }
             }
         }
 
@@ -35,16 +38,36 @@ export const request_loan = async (loan) => {
             loanStatus
         });
 
-        console.log(request_loan_response)
-
         return {
             type: REQUEST_LOAN,
-            payload: request_loan_response.status !== 200 ? request_loan_response.statusText : "Your loan was successfully requested"
+            payload: request_loan_response.status !== 200 ?
+                {
+                    message: "Something went wrong, please try again",
+                    type: "error"
+                } 
+                : 
+                {
+                    message:"Your loan was successfully requested",
+                    type: "success"
+                }
         };
     } catch (error) {
-        console.log(error);
+        return {
+            type: REQUEST_LOAN,
+            payload: {
+                message: "Something went wrong, please try again",
+                type: "error"
+            }
+        }
     }
 
+}
+
+export const clean_request_loan = () => {
+    return {
+        type: REQUEST_LOAN,
+        payload: null
+    }
 }
 
 export const get_loans = async () => {

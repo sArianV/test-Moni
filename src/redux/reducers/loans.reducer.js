@@ -7,6 +7,7 @@ import {
 const INITIAL_STATE = {
     loading: false,
     response_verificar: null,
+    response_request_loan: null,
     response: null,
     loans: null,
 };
@@ -17,7 +18,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 
         case REQUEST_LOAN:
             return {
-                ...state, response_solicitud: action.payload,
+                ...state, response_request_loan: action.payload,
             };
         
         case GET_LOANS:
