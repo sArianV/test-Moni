@@ -4,7 +4,6 @@ import styles from './tableRequestedLoans.module.css'
 import TableItem from './TableItem'
 
 function TableRequestedLoans({ loans }) {
-    console.log(loans)
     return (
         <div className={styles.table}>
             { loans &&

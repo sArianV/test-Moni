@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button } from '@chakra-ui/react';
+import { Button, Spinner } from '@chakra-ui/react';
 import { useSelector, useDispatch } from "react-redux";
 import { set_loading, get_loans } from "../../redux/actions/loans.actions";
 import styles from './index.module.css';
@@ -26,7 +26,7 @@ function index() {
     <div className={styles.content}>
       <div className={styles.table_container}>
         {loading ?
-          <div>Loading...</div>
+          <Spinner />
           :
           <TableRequestedLoans loans={loans} />
         }

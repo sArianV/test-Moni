@@ -1,24 +1,13 @@
-import React, { useEffect } from 'react'
-import { Button } from '@chakra-ui/react';
-import { useSelector, useDispatch } from "react-redux";
-import { set_loading, request_loan } from "../redux/actions/loans.actions";
+import React from 'react'
+import styles from './index.module.css';
+import RequestLoanForm from '../components/request-loan-form/RequestLoanForm';
 
-function index() {
-  const loading = useSelector((state) => state.loans.loading);
-  const dispatch = useDispatch();
-
-  const handleClick = async() => {
-    await request_loan()
-  }
-  
-  
+function index() {  
   return (
-    <div> pantalla verificar mi solicitud {loading? "true": "false"}
-      <Button
-        onClick={handleClick}
-      >
-        test api
-      </Button>
+    <div className={styles.content}>
+      <div className={styles.table_container}>
+        <RequestLoanForm />
+      </div>
     </div>
   )
 }
