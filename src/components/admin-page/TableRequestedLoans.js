@@ -19,6 +19,7 @@ function TableRequestedLoans({ loans }) {
                             <Th>Dni</Th>
                             <Th>Email</Th>
                             <Th isNumeric>Loan Status</Th>
+                            <Th> </Th>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -31,13 +32,6 @@ function TableRequestedLoans({ loans }) {
                             ))
                         }
                     </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Th>To convert</Th>
-                            <Th>into</Th>
-                            <Th isNumeric>multiply by</Th>
-                        </Tr>
-                    </Tfoot>
                 </Table>
             </TableContainer>
             }
