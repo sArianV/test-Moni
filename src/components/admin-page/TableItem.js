@@ -6,10 +6,13 @@ import {
     AiOutlineEdit
 } from "react-icons/ai";
 import DialogDelete from './DialogDelete';
+import ModalEdit from './ModalEdit';
 
 function TableItem({ id, loan }) {
     const [showOptions, setShowOptions] = useState(false)
     const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+    const [showEditModal, setShowEditModal] = useState(false)
+
     const {
         dni,
         email,
@@ -31,6 +34,10 @@ function TableItem({ id, loan }) {
         setShowDeleteDialog(true)
     }
 
+    const handleEdit = () => {
+        setShowEditModal(true)
+    }
+
     return (
         <Tr
             className={styles.table_item}
@@ -47,6 +54,7 @@ function TableItem({ id, loan }) {
                 { showOptions &&
                     <div className={styles.options}>
                         <div 
+                            onClick={handleEdit}
                             className={`${styles.option_item} ${styles.option_edit}`} 
                         >
                             <AiOutlineEdit />
@@ -59,7 +67,18 @@ function TableItem({ id, loan }) {
                         </div>
                     </div>
                 }
-                <DialogDelete isOpen={showDeleteDialog} setIsOpen={setShowDeleteDialog} id={id}/>
+                <DialogDelete 
+                    isOpen={showDeleteDialog} 
+                    setIsOpen={setShowDeleteDialog} 
+                    id={id}
+                />
+
+                <ModalEdit 
+                    isOpen={showEditModal}
+                    setIsOpen={setShowEditModal}
+                    loan={loan}
+                    id={id}
+                />
             </Td>
         </Tr>
     )

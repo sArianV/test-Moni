@@ -35,7 +35,7 @@ export const request_loan = async (loan) => {
 
         const request_loan_response = await axios.post(`${loans_api_url}`, {
             ...loan,
-            loanStatus
+            loanStatus: loanStatus === "approve" ? "APPROVED" : "REJECTED"
         });
 
         return {
@@ -105,6 +105,30 @@ export const delete_loan = async (loanId) => {
         return {
             type: GET_LOANS,
             payload: {},
+        }
+    }
+
+}
+
+export const edit_loan = async ({loan, loanId}) => {
+    try {
+        const loans_api_url = process.env.NEXT_PUBLIC_API_LOAN_URL
+
+        await axios.put(`${loans_api_url}/${loanId}.json`, loan);
+
+        const response = await axios.get(`${loans_api_url}.json`);
+        
+        return {
+            type: GET_LOANS,
+            payload: response?.data || {},
+        };
+    } catch (error) {
+        return {
+            type: REQUEST_LOAN,
+            payload: {
+                message: "Something went wrong, please try again",
+                type: "error"
+            }
         }
     }
 
