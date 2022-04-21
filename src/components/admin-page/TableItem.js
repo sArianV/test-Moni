@@ -5,15 +5,15 @@ import {
     AiOutlineDelete,
     AiOutlineEdit
 } from "react-icons/ai";
+import DialogDelete from './DialogDelete';
 
-function TableItem({ loan }) {
+function TableItem({ id, loan }) {
     const [showOptions, setShowOptions] = useState(false)
-
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false)
     const {
         dni,
         email,
-        genre,
-        id,
+        genre,        
         last,
         loanStatus,
         name
@@ -25,6 +25,10 @@ function TableItem({ loan }) {
 
     const handleMouseLeave = () => {
         setShowOptions(false)
+    }
+
+    const handleDelete = () => {
+        setShowDeleteDialog(true)
     }
 
     return (
@@ -48,12 +52,14 @@ function TableItem({ loan }) {
                             <AiOutlineEdit />
                         </div>
                         <div 
+                            onClick={handleDelete}
                             className={`${styles.option_item} ${styles.option_delete}`} 
                         >
                             <AiOutlineDelete />
                         </div>
                     </div>
                 }
+                <DialogDelete isOpen={showDeleteDialog} setIsOpen={setShowDeleteDialog} id={id}/>
             </Td>
         </Tr>
     )

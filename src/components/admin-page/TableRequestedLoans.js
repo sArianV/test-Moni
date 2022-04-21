@@ -23,10 +23,11 @@ function TableRequestedLoans({ loans }) {
                     </Thead>
                     <Tbody>
                         {
-                            loans.map((loan, index) => (
+                            Object.keys(loans).map(key => (                            
                                 <TableItem
-                                    key={loan?.id}
-                                    loan={loan}
+                                    key={key}
+                                    loan={loans[key]}
+                                    id={key}
                                 />
                             ))
                         }

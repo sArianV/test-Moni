@@ -74,8 +74,29 @@ export const get_loans = async () => {
     try {
         const api_url = process.env.NEXT_PUBLIC_API_LOAN_URL
 
-        const response = await axios.get(api_url);
+        const response = await axios.get(`${api_url}.json`);
 
+        return {
+            type: GET_LOANS,
+            payload: response?.data || {},
+        };
+    } catch (error) {
+        return {
+            type: GET_LOANS,
+            payload: {},
+        }
+    }
+
+}
+
+export const delete_loan = async (loanId) => {
+    try {
+        const api_url = process.env.NEXT_PUBLIC_API_LOAN_URL
+
+        await axios.delete(`${api_url}/${loanId}.json`);
+        
+        const response = await axios.get(`${api_url}.json`);
+        
         return {
             type: GET_LOANS,
             payload: response?.data || {},

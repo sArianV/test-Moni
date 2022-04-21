@@ -22,15 +22,15 @@ const reducer = (state = INITIAL_STATE, action) => {
             };
         
         case GET_LOANS:
-            const loans = []
+            /* const loans = []
             Object.keys(action.payload).map(key => {
                 loans.push({
                     id: key,
                     ...action.payload[key]
                 })
-            })
+            }) */
             return {
-                ...state, loans: loans,
+                ...state, loans: action.payload,
             };
 
         case SET_LOADING:
