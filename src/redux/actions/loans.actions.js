@@ -33,7 +33,7 @@ export const request_loan = async (loan) => {
             }
         }
 
-        const request_loan_response = await axios.post(`${loans_api_url}`, {
+        const request_loan_response = await axios.post(`${loans_api_url}.json`, {
             ...loan,
             loanStatus: loanStatus === "approve" ? "APPROVED" : "REJECTED"
         });
