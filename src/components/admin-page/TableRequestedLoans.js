@@ -9,7 +9,7 @@ function TableRequestedLoans({ loans }) {
             { loans &&
                 <TableContainer>
                 <Table variant='simple'>
-                    <TableCaption>Imperial to metric conversion factors</TableCaption>
+                    <TableCaption>List of Requested Loads</TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Name</Th>
